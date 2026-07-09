@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Code</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="lobby" class="lobby-view">
+        <div class="brand-row">
+          <span class="brand-mark">C</span>
+          <span>Chat Code</span>
+        </div>
+
+        <div class="hero-copy">
+          <h1>Make a chat. Share the code. Start talking.</h1>
+          <p>Create a room, send the code to a friend, and they can join from the button right here.</p>
+        </div>
+
+        <div class="action-panel">
+          <label for="nameInput">Your name</label>
+          <input id="nameInput" autocomplete="name" maxlength="24" placeholder="Type your name" />
+
+          <label for="chatNameInput">Chat name</label>
+          <input id="chatNameInput" autocomplete="off" maxlength="32" placeholder="Name this chat" />
+
+          <div class="button-row">
+            <button id="createChatBtn" class="primary-btn" type="button">Create Chat</button>
+            <button id="showJoinBtn" class="secondary-btn" type="button">Join With Code</button>
+          </div>
+
+          <form id="joinForm" class="join-form" hidden>
+            <label for="codeInput">Chat code</label>
+            <div class="join-row">
+              <input id="codeInput" autocomplete="off" maxlength="8" placeholder="AB12CD" />
+              <button class="primary-btn compact" type="submit">Join</button>
+            </div>
+          </form>
+
+          <p id="lobbyStatus" class="status-line" role="status"></p>
+
+          <div id="savedChatsWrap" class="saved-chats" hidden>
+            <span class="eyebrow">Saved chats</span>
+            <div id="savedChats" class="saved-chat-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="chat" class="chat-view" hidden>
+        <header class="chat-header">
+          <div>
+            <h2 id="chatTitle" class="chat-title">Chat</h2>
+            <span class="eyebrow">Room Code</span>
+            <button id="copyCodeBtn" class="code-button" type="button" title="Copy chat code">
+              <span id="roomCode">------</span>
+              <span class="copy-hint">Copy</span>
+            </button>
+          </div>
+          <button id="leaveBtn" class="secondary-btn compact" type="button">Leave</button>
+        </header>
+
+        <div id="messages" class="message-list" aria-live="polite"></div>
+
+        <form id="messageForm" class="message-form">
+          <input id="messageInput" autocomplete="off" maxlength="500" placeholder="Message this chat" />
+          <button id="sendBtn" class="primary-btn compact" type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
